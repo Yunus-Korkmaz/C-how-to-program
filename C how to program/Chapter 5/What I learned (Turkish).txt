@@ -1,0 +1,35 @@
+- fonsiyonları tekrar yazmak yerine halihazırda olan fonsiyonları kullanmak daha iyidir
+- math.h kütüpanesi double değer alır ve double değer dönderir
+- sqrt(x) -> x in karekökünü alır , fabs(x) -> x in mutlak değerini dönderir, ceil(x) -> x i yukarı yuvarlar , floor(x) -> x i aşağı yuvarlar 
+- cos(x) -> x in cosünüsünü alır , tan(x) x in tanjantını alır , log(x) -> e tabanında logaritmasını alır , log10(x) 10 tabanında logaritmasını alır
+- pow(x,y) -> x^y yi dönderir , exp(x) -> e^x dönderir, fmod(x,y) ->x%y yi dönderir , sin(x) -> sinüs x i dönderir
+- cbrt(x) -> küp kökünü dönderir c99 ve c11 standartlarında çalışır
+- fonksiyon çağrımında kullanılan elemanlar ile fonsiyon tanımında kullanılan elemanların farklı olması karmaşıklığı önler
+- programları fonsiyonlar halinde parça parça yazmak hata ayıklamayı, bakımını ve geliştirilmesini kolaylaştırır
+- paremetre isimleri bazen dökümasyon amaçlı fonsiyon bildirimlerine dahil edilebilir (önerilir)
+- time fonksiyonu 1 ocak 1970 gece yarısından den itibaren geçen saniyelerin sayısını gönderir
+- yerel değişkenler otomatik saklama süresine sahiptir
+- static tanımlı değişkenler başlangıç değeri verilmediyse otomatik olarak 0 a eşitlenir
+- optimizasyon nedeniyle C çoğu işlemin,(+dahil) terimlerin hangi sırada gerçekleşeceğini belirtmez, bu yüzden bu işlemler için bir oluş sırası kabulü yapamayız
+  örneğin fibonacci(n-2) +fibonacci(n-1) bu iki çağrımdan hangisinin önce yapılacağını bilemeyiz
+- c yalnızca 4 terimin gerçekleşme sırasını belirtir ; && , || , (,) ve ?:
+- özyineli olarak yazılabilen her program tekrarlamalı olarakta yazılabilir ,özyinelinin seçilme nedeni proglemi daha doğal yansıtması ve kolay anlaşılabilir olması
+- bir çok fonksiyona ayrılmış programlar çokça fonsiyon çağrısı yaparak programın performansını düşürür ancak geliştirebilmeye ,bakıma ve hata ayıklamaya daha uygun bir ortam sunar
+
+- c de 4 saklama sınıfı vardır : auto ,register, extern,static
+*auto = c nin standart saklama sınıfıdır bu yüzden bu ön ek nadiren kullanılır ( sadece b dili ile uyum sağlamak için) auto değişkenler yalnızca o scope içinde geçerli ve tanımlıdır
+*extern = değişkenlerin veya fonsiyonların diğer fonsiyonlar veya dosyalar tarafında görülebilmesini sağlar ,uzun programlarda bölünen code dosyalarının birbiri ile iletişiminide sağalar diyebiliriz
+*static = bu değişkenlere sadece bir defa değer ataması yapılabilir ve program bitimine kadar tekrardan bu değişkenlerde okuma haricinde birşey yapılamaz ,standart olarak bu değişkenlere başlangıcta 0 atanır
+*register = tanımlanan register değişkenler CPU yazmacında(register) saklanır ve çok çok daha hızlı erişim sağlanabilir fakat Cpu yazmacının(register) kapasitesi düşük olduğu için her register değişkenini tutabilme garantisi vermez
+	    sadece çok sık kullanılanları register olarak tanımlanması önerilir ve register ifadeler ramde saklanmadığı için bir adresleride olmaz dolayısı ile pointerlarada atanamaz
+*CPU registers = cpu belleklerinden farklı olan ve cpu nun olağan saat hızlarında çalışan çok hızlı depolardır , cpu bellekleri adrese sahiptir fakat registerler değildir
+
+- bir değişkene karakter ataması yapılırken öncesinde gelen \n yada EOF gibi karakterleri almaması için ;
+*fflush(stdin) = c de tanımsız bir davranıştır ve bu şekilde bir kullanımı yanlıştır ,okulda kullanılıyo dahi olsa doğru değildir 
+*while((c=getchar())1=='\n' ) = bu şekilde istenilmeyen olası karakterlerin alınması engellenebilir , bir çok karakter eklenebilir ,mesela EOF karakteri gibi
+*Scanf(" %c",&a) = yaparak önündeki boşlukların alınması engellenebilir
+
+- recursive fibonacci programı tekrarlamalı fibonacci programından çok daha yavaş oldu ,beklendiği gibi
+- hanoi kulelerinin recursive hali, tekrarlamalı hanoi kulelerinden daha hızlı oldu ,bunun sebebi tekrarlamalının içerisinde birçok defa fonksiyon çağrımında bulunması olabilir
+- long long unsgined int 20 karakterlik bir alan tutabiliyor (18,xxxxxxxx...)
+- double türü 19 karakterlik bir alan tutabiliyor

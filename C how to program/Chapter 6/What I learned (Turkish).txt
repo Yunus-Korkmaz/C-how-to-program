@@ -1,0 +1,20 @@
+- dizi aynı tipe sahip *ardışık* bellek alanlarının oluşturduğu yapıdır
+- size_t = işaretsiz tam sayı anlamına gelen bir tiptir dizi boyutunu ve indislerinin göstermekte kullanılması önerilir
+- stdlib kütüphanesinde yer alıyor eğer hata ile karşılaşılırsa stddef kütüphanesinde de denenebilir
+- int n[10] ={0} şeklinde bi tanımlama ilk elemana 0 değerini atar ve diğer elemanlara 0 değerini atar
+- int n[10] ={1} şeklinde bi tanımlama ilk elemana 1 değerini atar ve diğer elemanlara 0 değerini atar
+- dizi boyularını sembolik ifadelerler belirtmek programları daha ölçeklendirilebilir hale getirir "#define SIZE 10" gibi
+- sembolik sabitler bir değişken değildir program o ifadeleri gördüğünde istenilen ile yer değiştirir  
+  dolayısıyla sembolik ifadelere değer ataması söz dizimi hatasıdır
+- sembolik sabitlerde sadece büyük harfleri kullanmak program içinde bulunabilmesini kolaylaştırır
+- scanf boşluk, tab ,yeni satır \n yada dosya sonu işaretini EOF görene kadar okumaya devam eder 
+  scanf ile alınan bir stringin dizi boyutundan fazla olması durunda güvenlik açığı oluşabilir veya hataya sebeb olabilir 
+  bu yüzden 20 boyutunda bir dizi için scanf("%19s",dizi) şeklinde bir ifade kullanılabilir böylece diziye 19 karakter okunacağı garanti edilmiş olur
+
+- statik tanımı ile sürekli kullanılan değişkenlerin hafızada sürekli tutulması sağlanabilir 
+- c dizi leri bir fonksiyona sadece isimle paremetre olarak kullanıldığında fonksiyona referans ile geçirir yani adresini atar
+- çok boyutlu diziler tek indisle çağrılamıyor o sadece pointer kullanımında mümkün
+- kullanıcıdan alınan girdi asla biçim kontrol karekterleri olmadan printf ile yazdırılmamalıdır
+- paremetre olarak kullanılan dizilerde boyut önemli deildir derleyici boyutun sıfırdan büyük oldunu kontrol edip göz ardı eder
+- paremetre olarak kullanılan çok boyutlu dizilerde ilk boyut haricindekileren belirtilmesi gerekir 
+

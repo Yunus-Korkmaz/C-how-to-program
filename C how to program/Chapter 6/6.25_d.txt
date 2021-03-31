@@ -1,0 +1,5 @@
+- accessibility-heuristic version more harder to develop than brute-force version
+- I test both of them and both of them can guarantee full tour 
+- In the begening I was sure that brute force version absulutaly can guarantee the full tour but I was not sure about the accessibility-heuristic version
+- I test it and I see accessibility-heuristic also can guarantee full tour
+- Brute force need a powefull computer ,and more longer run the program

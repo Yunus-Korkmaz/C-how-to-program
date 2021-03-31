@@ -1,0 +1,7 @@
+- mod alma çarpma ve bölme eşit işlem önceliğine sahiptir
+- = işlemi sağdan sola yapılır
+- _ ile başlayan isimlendirme kütüphane fonsiyonları ile çakışabileceğinden dolayı önerilmez 
+- printf("%s","string") kullanımı daha güvenlidir,yada formatsız yazılar için puts("string")
+- printf, scanf 'te ki f formated anlamına gelir
+- \a bir ses çıkarımına yarar
+- fonksiyonun alt satırlarında coda 3 boşluk ile başlamak önerilir

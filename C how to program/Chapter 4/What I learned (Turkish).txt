@@ -1,0 +1,57 @@
+- belirli tekrarlama= sayacın ne zaman biteceğinin bilindiği 
+- belirsiz veya controllü tekrarlama sayacın ne zaman biteceğinin bilinmediği
+- while(++counter>=10) şeklinde de sayac artırımı yapılabilir
+- döngülerde ondalık değerler kullanmak tam doğru olmayan sonuçlar doğurabilir
+- üç kümeleme seviyesinden fazlasını kullanmamak code okunabilirliği açısından iyidir
+- control ifadelerinden önce ve sonra birer satır boşluk bırakmak okunabilirliği iyileştirir
+- for ifadesindeki 3 ifade de ihmal edilebilir ifade 2 ihmal edilirse sonsuz döngüye girer
+- conrol değeri döngü içerisinde değiştirilmemeye çalışılmalıdır
+- pow(x,y) fonksiyonu double türünde iki değer alır ve double türünde bir değer döndürür
+- eğer double olmayan değerler pow fonsiyonuna verilirse math.h dosyası fonsiyonu çağırmadan önce double iki kopya oluşturur ve onları kullandırttırır
+- para için double ve float türü çok uygun değil daha iyi bir hesaplama yöntemi lazım
+- EOF değeri sisteme bağlıdır
+- case  '\n' ,'\t', ' '  :durumları, eğer switch değişkeni bir string ise hesaba katılmalıdır
+- mantıksal ifadelerde &&(and) işleminde yanlış olma ihtimali en yüksek olanı en başa, ||(or) işleminde de doğru olma ihtimali en yüksek olanı en başa koymak program yürütme süresini düşürebilir
+- atama ifadesinin(==) sağında yalnızca bir değişken bulunabilir eğer bir sayı olursa compailer bunu bir hata olarak algılayacaktır
+- scanf giriş başarısız olursa EOF değerini aksi halde 'okunan eleman sayısını' geri dönderir
+- scanf("%d",&x) eğer 'bir' sayı okursa başarılı olduğunu bildirmek için 1 ,eğer bir string okursa sayı okunamadığını belli etmek için 0 dönderir
+- scanf("%d%d",&x,&y) eğer 2 giriş de başarılı ise scanf 2 göderir,ilk giriş bir karakter katarı ise 0 gönderir ve iki değişkenede değer atanmaz,ilk giriş bir karekter katarı ile birlikte bi sayı ise (ali5) x değişkenine değer atanır y 
+değikenine atanmaz ve scanf 1 gönderir
+- a=b=c=0 şeklinde atama yapılabilir
+- EOF stdio.h da tanımlı sembolik bir tam sayı sabitidir
+- decimal sayıları sekizlik halde yazdırmak için %o ,onaltılık şekilde yazdırmak için %x çevrim belirteçleri kullanılabilir
+
+
+#include<stdio.h>
+
+int main(void){
+	
+	
+	puts("Enter 5 integer one by one [1-30] :");
+	short int i,k;
+	for(i=1;i<=5;i++){
+		
+		printf("i=%d &i=%d k=%d &k=%d ",i,&i,k,&k);
+		scanf("%d",&k);	 //*****	
+		for(k;k>=1;k--)
+			printf("%s","*");
+			puts("");
+			
+	}
+	
+}
+ 
+ Yukariki kodda k değeri değiştirilmek istendiğinde  i değeri sıfırlanıyor ve sonsuz bi dongüye giriyor
+ Her defasında i birden başlıyor.Değişkenlerin adresleri &i=6487582 &k=6487580.
+
+ Sebebi ise 'short int' ten kaynaklanıyor olabilir short int 2 bayt ve c de minumum erişim 4 bayt ile olmakta 
+ k ya erişilmeye çalışıldığında compailer k değişkeni sonrasındaki iki bayta da mudehale ediyo sanırrım (padding işlemi )
+ ve i sıfırlanıyor.
+ Bu yüzden short int özel donanımlar haricinde tercih edilmemelidir.
+
+
+ short int problem adlı dosyada olduğu gibi 
+ bir 'short int' değiştirildiğinde onun 2 bayt ilerisindekinin verisi sıfırlanıyor fakat 2 bayt gerisindekinin değeri değişmiyor
+ yani değiştirme adres olarak en ilerde olan değişkenden başlarsa diğer değerler zarar görmüyor.
+
+ bu hata sadece adresleri arka arkaya olan short intlerde geçerli .

@@ -1,0 +1,15 @@
+- go to elemination (yapısal programlama) ' da go to kullanmadan code yazılabilir bu codu daha okunaklı hale getirir
+- c sadece 7 tür kontrol ifadesine sahiptir sıra,3 tür karar ve  3 tür döngü ifadesi
+* queue : işlem öncelikleri ve kodun akış şekli
+* decisions : if, if-else, switch,
+* loops : for, while, do-while
+- :? koşullu ifadesinin kullanılabilir olduğunu düşünüyorum
+- float 6 kesinlik değeri kullanır 0,123456
+- else ifadesi küme parentezi yoksa direk üstündeki else ile bağlantılı olur
+- ondalık sayıları karşılaştırmak c de değer kesinliği tam olmadığı için hatalara yol açabilir
+- ++x ve x++ ifadeleri yanlız başına kullanıldıklarında aynıdır
+- c'de ifadelerin içi işlemlerin ne sıradı yapılacağını belirlemez
+- int x=a+b ifadesi potansiyel bir problemdir ,x değerinin int limitlerini aşması
+- koşullu işlem (:?) c deki tek 3 lü operatördür
+- çoğu bilgisayar işlemleri yalnızca aynı türler arasında yapabilir bu yüzden compiler bunu dolaylı olarak çevirir
+* çevirilecek türe çevirilecek değerin kopyasını alır ve o şekilde işlem yapar

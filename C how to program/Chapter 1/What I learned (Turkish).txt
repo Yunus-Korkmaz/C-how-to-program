@@ -1,0 +1,6 @@
+- code düzenleyicide yazıldıktan sonra önişlemci direktifleri yerine getirilir ve derlenir sonra bağlayıcılar ilgili dosyalarla ilişki kurulmasını sağlar ve hafızaya yüklenir
+- Unix c ile geliştirilmeye devam edilmiştir 
+- 3 standart ;standart c->1989 , c99, c11
+- Richard bell labaratuarlarında b dilinden c yi geliştirerek 1972 de sunmuştur
+- objective-c 1980 yılında c dilinde geliştirilen nesne yönelimli bir dildir
+- ios ve mac os x objective-c dilinden geliştirilmiştir
