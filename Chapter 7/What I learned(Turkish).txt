@@ -1,0 +1,58 @@
+- *y++ ile *y+=1 aynı değildir : *y+=1 nin adreslediği yerdeki değişkenin değerini değiştirir diğer *y++ nin adreslediği yeri değiştirir.
+  .) "*" operatörü "+"öperatörüne göre öncelikllidir fakar "++" operatörüne karşı öncelikli değildir .Öncelik sırası "++">"*">"+" şeklindedir
+-  char *Menu={
+				"***************************************\n"
+				"***      Circle Calculator MENU      ***\n"
+				"***************************************\n"
+				"*** 1: Circumference of a Circle    ***\n"
+				"*** 2: Area of a Circle             ***\n"
+				"*** 3: Volume of a Sphere.          ***\n"
+				"*** 0: EXIT                         ***\n"
+				"***************************************\n"
+				"Enter choice ? "	
+	};
+
+şeklinde menüler daha kolay oluşturulabilir.
+
+- C:\Users\yunus\AppData\Local\Temp\cckITwhz.o  7.30.c:(.rdata$.refptr.Volume[.refptr.Volume]+0x0): undefined reference to `Volume' 
+  * Böyle bir hata fonksiyon dizisi oluştururken kullanılan fonsiyonların protipleri olsa dahi kendileri yazılmadıklarında ortaya çıkıyor.
+- Pointer tanımlarken int *x,*y şeklinde tanımlanmalıdır , int* a,b gibi tanımlanırsa b pointer olmaz
+- NULL <stddef.h> ve <stdio.h> gibi birçok kütüphanede tanımlı bir sabittir
+- Pointeri 0 ile ilklendirmek Null ile İlklendirmekle aynıdır fakat Null tecih edilir çünki 0 atadığında birde işaretciye uygun tipe dönüşüm işlemi yapılmaktadır.
+- 0 değeri pointerlara direk olarak atanabilen tek tamsayı değeridir
+- Beklenmedik hatalarla karşılaşmamak için pointerlar oluşturuldukları an ilklendirilmelidir
+- C deki tüm argümanlar değer ile aktarılır ?????
+- Derleyici tek boyutlu dizi ile pointer arasında ayrım yapmaz 
+  * derleyici int b[] şeklinde ki bir paremetre gördüğünde *b şekline dönüştürür ,bu iki kullanım birbirinin yerine geçebilir
+- Gerekli olmadıkça argüman aktarımında referans ile aktarım kullanılmamalıdır
+- C de structure lar(yapılar) daima değer ile aktarılır
+  * fonsiyon argüman olarak bir dizi ile birlikte çağrıldığında,dizi otomatik olarak referans ile aktarılır fakat 
+	structur lar değer ile gönderilir : structur daki her bir nesnenin kopyası oluşturulur ve fonsiyon çağırma yığınlarında tutulur 
+	bu da fazladan yüke sebeb olmaktadır bu yüzden argümen olrak structure kullanılırken structure işaretleyen bir pointer kullanılması önerilir
+- structure ler gibi büyük objelerin aktarımında referans yolu ile aktarmanın performansa pozitif yönde etkisi vardır
+- Eğer sistem düşük bellekli ve performans önemli bir konu ise işaretçiler kullanılmalı referans ile aktarılmalıdır
+- Eğer sistem düşük bellekli değil ve performans önemli bir konu değilse değer ile aktarım daha fazla güvenlik sağlayacaktır
+- int *const ptr=&x; sabit olmayan veriler sabit işaretci tıpkı dizilerdeki gibi 
+  * yeni adres ataması yapılamaz
+  * tuttuğu değerler değiştirilebilir
+- const int *const ptr=&x; sabit verilere sabit işaretçi
+  * yeni adres ataması yapılmaz 
+  * tuttuğu değerler değiştirilemez (ilk atama hariç)
+- fonsiyon protiplerini fonksiyonların kullanılacağı fonksiyonların içine koymak diğer yerlerden gelen çağrıları engelleyebilmektedir
+  * diğer yerlerden gelen çağrılarda fonsiyonun prototipini derleyici görmediğinde otomatik olarak bir prototip üretecektir 
+	ve derleyici bu prototip için argüman ve dönüş tiplerini int olarak varsayacağı için bu işlem genellikle hata ile sonuçlanır
+- sizeof() operatörü boyutu size_t türünde dönderir.
+- Veri tiplerinin boyutları sistemden sisteme değişiklik gösterebilir bu yüzden veri tiplerinin boyutlarıyla ilgili işlemlerde sizeof() kullanılmalıdır
+- Aynı türdeki işaretçiler arasında çıkarma işlemi uygulanabilir sonuç aralarındaki mesafenin oldukları tipinin boyutuna bölümü şeklindedir
+  * x= *a - *b , a=6487564 ve b=6487552 adreslerini içeriyolarsa sonuç : x = 12/intiger boyutu x=12/4 = 3tür
+- pointer aritmetiğini veya birbirinden çıkarmayı bir dizinin elemanlarını göstermeyen pointerlar için kullanmak hatalara sebeb olabilir
+- Void tipindeki bir pointer tüm pointerlara atanabilir ve void tipindeki bir pointera tüm tipdeki pointerler atanabilir çevirme işlemi gerekmez 
+- Void tipindeki bir pointerreferanstan ayrılırken type casting yapılmalıdır : void *ptr; printf("%d",*(int*)ptr) gibi 
+- pointerlar mantıksal operatörlere tabi tutulabilirler fakat bu pointerlar aynı dizinin elemanlarına işaret etmiyosa bu durum anlamsız olabilir
+- *(ptr +3) durumunda parantez kullanımı gereklidir çünki * işleminin + işlemine göre önceliği vardır
+- Pointerlarda diziler gibi indislenebilir
+- int (*compare)(int a,int b) : paretmere olarak 2 integer değer alan ve geriye bir integer değer döndüren bir fonsiyona işaret eden bir işaretciyi tanımlar
+- int *compare(int a,int b) : paremetre olarak 2 integer değer alan ve geriye bir integer pointer döndüren bir fonsiyonu tanımlar,bir pointer değildir 
+- int* (*compare)(int a,int b) : paremetre olarak 2 integer alan ve geriye bir integer pointer dönderen bir fonsiyona işaret eden bir işaretciyi tanımlar
+- int (*compare[3])(int a,int b) : paretmere olarak 2 integer değer alan ve geriye bir integer değer döndüren 3 fonksionunluk alana işaret eden bir işaretciyi tanımlar   
+- NULL değerlerli pointerların referanstan ayrılmaları program çökmesi ile sonuçlanır.
